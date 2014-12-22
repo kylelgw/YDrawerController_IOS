@@ -37,7 +37,12 @@
     [self.view addSubview:topView];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, TOP_VIEW_HEIGHT, LEFT_MENU_WIDTH, self.view.frame.size.height-TOP_VIEW_HEIGHT) style:UITableViewStylePlain];
-    [tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    if(CURRENT_VERSION>=7.0){
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+   
+    
     tableView.delegate = self;
     tableView.dataSource = self;
     

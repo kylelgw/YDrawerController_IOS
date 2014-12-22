@@ -107,7 +107,7 @@
     [self addChildViewController:_leftMenuController];
     [self didMoveToParentViewController:self];
     
-    _leftMenuController.view.frame = CGRectMake(-LEFT_MENU_WIDTH, 0, LEFT_MENU_WIDTH, self.view.frame.size.height);
+    
     
     _leftMenuController.view.layer.masksToBounds = NO;
     
@@ -118,6 +118,7 @@
     _leftMenuController.view.layer.shadowOpacity = 0.6;
     
     [self.leftContainer addSubview:_leftMenuController.view];
+    _leftMenuController.view.frame = CGRectMake(-LEFT_MENU_WIDTH, 0, LEFT_MENU_WIDTH, self.view.frame.size.height);
 }
 
 -(void)setContainerController:(UIViewController *)containerController{
@@ -134,9 +135,10 @@
     [self addChildViewController:_containerController];
     [self didMoveToParentViewController:self];
     
+    
+    [self.view insertSubview:_containerController.view atIndex:0];
     _containerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     _containerController.view.layer.masksToBounds = YES;
-    [self.view insertSubview:_containerController.view atIndex:0];
 }
 
 -(void)setContainerToController:(UIViewController *)containerController withAnim:(void (^)(UIViewController *))callback{

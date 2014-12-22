@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     
     
     TopBar *topBar = self.drawerController.topBar;
@@ -75,18 +75,17 @@
 
 -(void)onRight1Press{
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 120,44*3) style:UITableViewStylePlain];
-    [tableView setSeparatorInset:UIEdgeInsetsZero];
+
+    [tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.backgroundColor = [UIColor clearColor];
-    
     tableView.layer.cornerRadius = 5.0;
-    tableView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    tableView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
-    tableView.layer.shadowOpacity = 0.6;
     tableView.scrollEnabled = NO;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, tableView.frame.size.height)];
     
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, tableView.frame.size.height)];
+    view.backgroundColor = [UIColor whiteColor];
     view.layer.cornerRadius = 5.0;
     view.layer.shadowOpacity = 0.9;
     view.layer.shadowOffset = CGSizeMake(2.0, 2.0);
